@@ -39,5 +39,7 @@ public class UserDAO {
                 .orElseThrow(() -> new UserNotFoundException(message));
     }
 
-
+    public List<UserModel> findAll() {
+        return models;
+    }
 }
