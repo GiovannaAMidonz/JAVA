@@ -1,7 +1,6 @@
-package org.example.getstarted;
+package org.example.getstarted.model;
 
 import org.example.getstarted.excepition.UserNotFoundException;
-import org.example.getstarted.model.UserModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,7 @@ public class UserDAO {
     }
 
     public UserModel findById(final long id) {
-       var message = String.format("não existe usuário com id %d cadastrado!", id);
+       var message = String.format("There is no user registered with ID %d!", id);
         return models.stream()
                 .filter(u -> u.getId() == id)
                 .findFirst()
@@ -42,4 +41,5 @@ public class UserDAO {
     public List<UserModel> findAll() {
         return models;
     }
+
 }
