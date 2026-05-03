@@ -1,4 +1,4 @@
-package org.example;
+package org.example.getstarted;
 
 import org.example.getstarted.model.UserDAO;
 import org.example.getstarted.excepition.UserNotFoundException;
