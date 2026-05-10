@@ -6,25 +6,43 @@ import java.util.Scanner;
 
 public class CarrinhoDeCompra {
 
-    protected List<String> produtos = new ArrayList<>();
+    protected List<Produto> produtos = new ArrayList<>();
 
 
     public void adicionarProduto(String nome, int quantidade, double preco, String variacoes) {
-        produtos.add(String.valueOf(new Produto(nome,quantidade,preco,variacoes)));
+        produtos.add(new Produto(nome,quantidade,preco,variacoes));
     }
 
     public void removerProduto(String nome) {
-        produtos.removeIf(produto -> produto.contains(nome));
+        List<Produto> produtosRemover = new ArrayList<>();
+        for (Produto produto : produtos) {
+            if (produto.getNome().equalsIgnoreCase(nome)) {
+                produtosRemover.add(produto);
+            }
+        }
     }
         public void exibirProdutos() {
             System.out.println("Produtos no carrinho:");
-            for (String produto : produtos) {
+            for (Produto produto : produtos) {
                 System.out.println(produto);
             }
         }
 
         public int quatidadeProdutos(){
         return produtos.size();
+    }
+
+    public void limparCarrinho(){
+        produtos.clear();
+    }
+
+    public void alterarQuantidade(String nome, int novaQuantidade){
+        for(Produto p : produtos){
+            if(p.getNome().equalsIgnoreCase(nome)){
+                p.setQuantidade(novaQuantidade);
+                break;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -53,6 +71,7 @@ public class CarrinhoDeCompra {
                     String variacoes = sc.next();
 
                     carrinho.adicionarProduto(nome, quantidade, preco, variacoes);
+
 
                     System.out.println("Produto adicionado com sucesso!");
                     System.out.println("------------------------------");
