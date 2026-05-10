@@ -40,7 +40,6 @@ public class CarrinhoDeCompra {
         for(Produto p : produtos){
             if(p.getNome().equalsIgnoreCase(nome)){
                 p.setQuantidade(novaQuantidade);
-                break;
             }
         }
     }
@@ -55,7 +54,8 @@ public class CarrinhoDeCompra {
             System.out.println("2 - Remover produto");
             System.out.println("3 - Exibir produtos");
             System.out.println("4 - Quantidade de produtos");
-            System.out.println("5 - Sair");
+            System.out.println("5 - Quantidade de produtos");
+            System.out.println("6 - Sair");
             System.out.println("Escolha uma opção: ");
             int opcao = sc.nextInt();
 
@@ -63,11 +63,11 @@ public class CarrinhoDeCompra {
                 case 1:
                     System.out.println("Digite o nome do produto: ");
                     String nome = sc.next();
-                    System.out.println("Digite o nome do quantidade: ");
+                    System.out.println("Digite a quantidade: ");
                     int quantidade = sc.nextInt();
-                    System.out.println("Digite o nome do preco: ");
+                    System.out.println("Digite o preco: ");
                     double preco = sc.nextDouble();
-                    System.out.println("Digite o nome do variacoes: ");
+                    System.out.println("Digite a variacoes: ");
                     String variacoes = sc.next();
 
                     carrinho.adicionarProduto(nome, quantidade, preco, variacoes);
@@ -89,6 +89,13 @@ public class CarrinhoDeCompra {
                     System.out.println("Quantidade de produtos: " + carrinho.quatidadeProdutos());
                     break;
                 case 5:
+                    System.out.println("Alterar quantidade de um produto");
+                    System.out.println("Digite o nome do produto: ");
+                    String nomeDoProduto = sc.next();
+                    System.out.println("Digite a nova quantidade: ");
+                    int novaQuantidade = sc.nextInt();
+                    carrinho.alterarQuantidade(nomeDoProduto, novaQuantidade);
+                case 6:
                     System.out.println("Saindo...");
                     return;
                 default:
