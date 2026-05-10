@@ -7,8 +7,11 @@ public class Produto {
     private String variacoes;
 
 
-    public Produto(String nome) {
+    public Produto(String nome, int quantidade, double preco, String variacoes) {
         this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.variacoes = variacoes;
     }
 
     public String getNome() {
